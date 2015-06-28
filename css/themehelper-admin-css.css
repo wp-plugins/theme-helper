@@ -1,0 +1,78 @@
+/************* theme helper admin css *********/
+
+
+
+.themehelper-plugin-container {
+  display: block;
+  width: 100%;
+  background-color: #ddd;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  border: 1px solid #999;
+  box-shadow: 1px 1px #333;
+  margin: 10px 0;
+}
+
+.themehelper-plugin-container.themehelper-plugin-fulltitle {
+  width: 97%;
+  color: #FFF;
+}
+
+.themehelper-col-left {
+  display: inline-block;
+  width: 75%;
+  vertical-align: top;
+}
+
+.themehelper-col-right {
+  display: inline-block;
+  width: 24%;
+  vertical-align: top;
+  text-align:center;
+}
+
+/********** end ***********/	
+	
+	
+	
+	.themehelper-container {
+  display: block;
+  width: 100%;
+
+}
+
+.col2 {
+  display: inline-block;
+  vertical-align: top;
+}
+	.theme.helper-col {
+  display: inline-block;
+  width: 30%;
+  vertical-align:top;
+}
+
+input[type=radio].color-box {
+  border: 3px solid #FFF;
+  border-radius: 0;
+
+  height: 50px;
+  width: 50px;
+}
+
+.color-box-container {
+  display: inline-block;
+  width: 50px;
+  text-align: center;
+  margin-right: 20px;
+}
+
+.color-box-container .color-box-field {
+  width: 52px;
+  margin: 10px 0;
+}
+
+
+.themehelper-textarea {
+	width:100%;
+	height:100px;
+}
