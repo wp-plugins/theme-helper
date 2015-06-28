@@ -16,13 +16,13 @@ Theme Helper improved the Theme frameworks development accessible, removing the 
  
  Theme Helper improved the Theme frameworks development more accessible, removing the need for programming or design knowledge by creating a simple option panel.
 
-Features Include: 
-*   Admin/User panel.
-*   Shortcodes to use in the hook boxes, widgets and content.
-*   Color Scheme Switcher.
-*   Shortcode for social media icons.
+**Features Include: **
+*   Admin/User panel
+*   Shortcodes to use in the hook boxes, widgets and content
+*   Color Scheme Switcher
+*   Shortcode for social media icons
 
-Future Development: 
+**Future Development: **
 *   Your Ideas are all welcome for the improvement of the Theme Helper Plugin 
 
 
@@ -48,7 +48,7 @@ Future Development:
 
 Use shortcodes in the hook boxes, widgets and content.
 
-Available shortcodes
+*Available shortcodes*
 
 *   Logo: [themehelper_logo]
 *   Company Name: [themehelper_company_name]
