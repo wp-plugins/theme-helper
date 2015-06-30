@@ -213,12 +213,12 @@ function th_color_scheme (  ) {
 	?>	
 
 	<style id="themehelper-style"><?php	$th_color_scheme = get_option(themehelper_color);	?>
-	<?php echo  get_option(themehelper_css_color_bg); ?> {	background-color: <?php echo $th_color_scheme['color_scheme_option']; ?>	} <?php echo  get_option(themehelper_css_color_txt); ?> {	color: <?php echo $th_color_scheme['color_scheme_option']; ?>	}
-	.theme-helper a.themehelper-icon:hover, a.themehelper-icon.theme, .theme-helper .theme-helper-bg  {	background-color: <?php echo $th_color_scheme['color_scheme_option']; ?> } .theme-helper .theme-helper-txt ( color:<?php echo $th_color_scheme['color_scheme_option']; ?> )
+	<?php echo  get_option(themehelper_css_color_bg); ?> {	background-color: <?php echo $th_color_scheme['color_scheme_option']; ?> !important;	} <?php echo  get_option(themehelper_css_color_txt); ?> {	color: <?php echo $th_color_scheme['color_scheme_option']; ?> !important;	}
+	.theme-helper a.themehelper-icon:hover, a.themehelper-icon.theme, .theme-helper .theme-helper-bg  {	background-color: <?php echo $th_color_scheme['color_scheme_option']; ?>; } .theme-helper .theme-helper-txt ( color:<?php echo $th_color_scheme['color_scheme_option']; ?>; )
 	</style>
 	
 	<style>
-	a.themehelper-icon { background-image: url("<?php echo  plugins_url( 'images/themehelper-sprite.png', __FILE__ ); ?>")  }
+	a.themehelper-icon { background-image: url("<?php echo  plugins_url( 'images/themehelper-sprite.png', __FILE__ ); ?>");  }
 	</style>
 	
 <?php
@@ -278,8 +278,8 @@ $htmlatt = get_option(th_html_attribute);
 jQuery( ".themehelper-color-switch" ).click(function() {
   var color = jQuery( this ).css( "background-color" );
   jQuery( "#themehelper-style" ).html( " <?php echo  get_option(themehelper_css_color_bg); ?> { background-color:" +
-	color + "; } <?php echo  get_option(themehelper_css_color_txt); ?> { color:" +
-	color + "; } .theme-helper a.themehelper-icon:hover, a.themehelper-icon.theme, .theme-helper .theme-helper-bg { background-color:" +
+	color + " !important; } <?php echo  get_option(themehelper_css_color_txt); ?> { color:" +
+	color + "!important; } .theme-helper a.themehelper-icon:hover, a.themehelper-icon.theme, .theme-helper .theme-helper-bg { background-color:" +
 	color + "; } .theme-helper-txt { color:" +
 	color +	"; }" ).appendTo( "footer" );
 });
