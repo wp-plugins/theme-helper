@@ -15,6 +15,7 @@ function th_themehelper_menu() {
 function th_themehelper_register_settings() {
 
 register_setting( 'th_themehelper_settings_group', 'themehelper_logo' );
+register_setting( 'th_themehelper_settings_group', 'themehelper_secondary_logo' );
 register_setting( 'th_themehelper_settings_group', 'themehelper_companyname' );
 register_setting( 'th_themehelper_settings_group', 'themehelper_email' );
 register_setting( 'th_themehelper_settings_group', 'themehelper_phone' );
@@ -50,6 +51,11 @@ register_setting( 'th_themehelper_settings_group', 'th_sm_icon4' );
 register_setting( 'th_themehelper_settings_group', 'th_sm_icon5' );
 
 register_setting( 'th_themehelper_settings_group', 'th_use_custom_icon' );
+
+register_setting( 'th_themehelper_settings_group', 'themehelper_banner1' );
+register_setting( 'th_themehelper_settings_group', 'themehelper_banner2' );
+
+
 }
 
 add_action( 'admin_init', 'th_themehelper_register_settings' );
@@ -82,14 +88,10 @@ input.color-box.color-box-option5 {
 .themehelper-plugin-container.themehelper-plugin-fulltitle {
 	background-color:<?php echo $th_color_scheme['color_scheme_option']; ?>;
 }
+.tab-links a { background-image: url("<?php echo  plugins_url( 'images/admin-themehelper-icon.png', __FILE__ ); ?>");  }
+.themehelper-container h2, li.active a, li.active a:hover, .tab-links a:hover, .themehelper-title h1 span { color:<?php echo $th_color_scheme['color_scheme_option']; ?>; }
+
 </style>
-
-	<div class="themehelper-plugin-container themehelper-plugin-fulltitle">
-<h1> Theme Helper </h1> 
-</div>
-
-<div class="themehelper-col-left">
-
 
 <form method="post" action="options.php">
 
@@ -105,15 +107,48 @@ wp_enqueue_script('jquery');
 wp_enqueue_media();
 ?>
 
-<div class="themehelper-plugin-container">
-<h2> Logo </h2>
-<p> <b>Shortcode: </b>  [themehelper_logo]</p>
-    <div>
-   
-    <input type="text" name="themehelper_logo" id="themehelper_logo" class="regular-text" value="<?php  echo get_option('themehelper_logo'); ?>">
+
+
+
+<div class="themehelper-wrap">
+
+<div class="themehelper-header">
+<div class="themehelper-title"> <h1> <span> THEME </span> HELPER </h1> </div>
+<div class="themehelper-header-link">  <a target="_blank" href="">  FAQ </a> | <a target="_blank" href="">  Support Forum </a>  </div>
+<div class="themehelper-donation"> <a target="_blank" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=NAX45XQV5P7ZW"> <img src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif"> </a> </div>
+</div>
+
+<div class="themehelper-header-save">  <?php submit_button(); ?> </div>
+
+<div class="clear-both"> </div>
+
+<div class="themehelper-content">
+
+	<div class="th-tabs">
+<ul class="tab-links">
+        <li class="active th-menu-logo"><a href="#tab1"> LOGO</a></li>
+        <li class="th-menu-deatils"><a href="#tab2"> DETAILS</a></li>
+        <li class="th-menu-color"><a href="#tab3"> COLOR SCHEME</a></li>
+        <li class="th-menu-sm"><a href="#tab4"> SOCIAL MEDIA </a></li>
+		<li class="th-menu-banner"><a href="#tab5"> BANNER </a></li>
+    </ul>
+	
+
+	<div class="tab-content">
+        <div id="tab1" class="tab active">
+		
+<div class="themehelper-container">		
+		<h2>  LOGO </h2>
+		</div>
+		
+<div class="themehelper-container">
+	
+	<h3> Primary Logo </h3>
+
+	<p> Shortcode: [themehelper_logo] </p>
+  <input type="text" name="themehelper_logo" id="themehelper_logo" class="regular-text" value="<?php  echo get_option('themehelper_logo'); ?>">
     <input type="button" name="upload-btn" id="upload-btn" class="button-secondary" value="Upload Image">
-	<input type="submit" name="submit" id="submit" class="button button-primary" value="Update">
-	<div>
+			<div class="themehelper-img">
 	<?php
 	if (!get_option('themehelper_logo') == '') {
 	?>
@@ -122,20 +157,34 @@ wp_enqueue_media();
 	}
 	?>
 	</div>
+	</div>
 	
+        
+	<div class="themehelper-container">	
+		<h3> Secondary Logo </h3> 
+<p> Shortcode: [themehelper_secondary_logo] </p>		
+  <input type="text" name="themehelper_secondary_logo" id="themehelper_secondary_logo" class="regular-text" value="<?php  echo get_option('themehelper_secondary_logo'); ?>">
+    <input type="button" name="upload-second-btn" id="upload-second-btn" class="button-secondary" value="Upload Image">
+		<div class="themehelper-img">
+	<?php
+	if (!get_option('themehelper_secondary_logo') == '') {
+	?>
+	<img id="themehelper_secondary_logo" src="<?php  echo get_option('themehelper_secondary_logo'); ?>">
+	<?php 
+	}
+	?>
+	</div>
+	</div>
 	
-</div>
-</div>
+        </div>
 
+        <div id="tab2" class="tab">
 
-<div class="themehelper-plugin-container">
-<h2> Company Details </h2>
-
-<div class="themehelper-wrap"> 	
-
-</div>
-
-<div class="themehelper-container">
+		<div class="themehelper-container">
+		<h2> Company Details </h2>
+		</div>
+		
+		<div class="themehelper-container">
 	<div class="theme helper-col"> <b> Details: </b> </div>
 	<div class="theme helper-col"> <b> Fields </b> </div>
 	<div class="theme helper-col">	<b> Shortcode  </b> </div>
@@ -165,20 +214,25 @@ wp_enqueue_media();
 	<div class="theme helper-col">	[themehelper_fax] </div>
 </div>	
 	
-<div class="themehelper-container">	
+<div class="themehelper-container">
 	<div class="theme helper-col"> Address: </div>
 	<div class="theme helper-col"> <textarea  name="themehelper_address"> <?php echo get_option('themehelper_address'); ?> </textarea>  </div>
 	<div class="theme helper-col">	[themehelper_address] </div>
 </div>	
 
-</div>
+        </div>
 
-<div class="themehelper-plugin-container">
-<h2>  Color Scheme </h2>
-
+        <div id="tab3" class="tab">
+          
+		  <div class="themehelper-container">
+		  <h2> Color Scheme </h2>
+		  </div>
+		  
+		  <div class="themehelper-container">
 <p>  <input type="checkbox" name="th_activate_color_switcher" value="th_activate_color_switcher" <?php echo "th_activate_color_switcher" == get_option('th_activate_color_switcher') ? 'checked="checked"' : '' ?> />
 Activate Color Scheme Switcher in Frontend 
 </p>
+</div>
 
 
 
@@ -202,6 +256,10 @@ $option5 = get_option(themehelper_color_option5);
 $echo = true;
  
  ?>
+ 
+ <h3> Select Default Color Scheme </h3>
+ 
+ <div class="themehelper-container">
 
  
 <div class="color-box-container">
@@ -232,29 +290,43 @@ $echo = true;
 </div>
 
 
-
-<h3> CSS Switcher Option </h3>
-
-<h4> Background Color Switcher </h4>
-<p> Control your Background Color Scheme by adding only the CSS Property here. Example " .site-header, .site-footer " </p>
-<textarea name="themehelper_css_color_bg" class="themehelper-textarea"> <?php echo  get_option(themehelper_css_color_bg); ?> </textarea>
-
-<h4> Text Color Switcher </h4>
-<p> Control your Text Color Scheme by adding only the CSS Property here. Example " body, h1, h2, h3, h4, h5, h6, p " </p>
-<textarea name="themehelper_css_color_txt" class="themehelper-textarea"> <?php echo  get_option(themehelper_css_color_txt); ?> </textarea>
-
 </div>
 
 
-<div class="themehelper-plugin-container">
+<h3> CSS Switcher Option </h3>
+
+ <div class="themehelper-container">
+<h4> Background Color Switcher </h4>
+<p> Control your Background Color Scheme by adding only the CSS Property here. Example " .site-header, .site-footer " </p>
+<textarea name="themehelper_css_color_bg" class="themehelper-textarea"> <?php echo  get_option(themehelper_css_color_bg); ?> </textarea>
+</div>
+
+ <div class="themehelper-container">
+<h4> Text Color Switcher </h4>
+<p> Control your Text Color Scheme by adding only the CSS Property here. Example " body, h1, h2, h3, h4, h5, h6, p " </p>
+<textarea name="themehelper_css_color_txt" class="themehelper-textarea"> <?php echo  get_option(themehelper_css_color_txt); ?> </textarea>
+</div>
+		  
+		  
+        </div>
+
+        <div id="tab4" class="tab">
+		
+		
+ <div class="themehelper-container">	
 	<h2> Social Media </h2>
+		</div>
+
+	
+ <div class="themehelper-container">
 
 <p>  <input type="checkbox" name="th_use_custom_icon" value="th_use_custom_icon" <?php echo "th_use_custom_icon" == get_option('th_use_custom_icon') ? 'checked="checked"' : '' ?> />
 Use/Upload custom icon 
 </p>
 	
 	<p> Shortcode: [themehelper_social_media style="box" color="dark"] See Faq for more list of shortcode attributes. </p>
-	
+
+</div>	
 	<?php
 	// Get an array of options from the database.
 $option1 = get_option( 'themehelper_social_media1' );
@@ -301,12 +373,14 @@ $th_custom5 = 'themehelper-icon5';
 	<option value="<?php echo $th_custom1; ?>" <?php selected( $option1['sm_select1'], $th_custom1 ); ?>> Custom Icon  </option>
 	</select>
 	</div>
-	<div class="col2">
-	<input type="text" name="themehelper_social_media_url1" value="<?php echo get_option(themehelper_social_media_url1); ?>">	
+	<div class="col22">
+	<input type="text" name="themehelper_social_media_url1" class="regular-text" value="<?php echo get_option(themehelper_social_media_url1); ?>">	
 	</div>	
 	<?php if (get_option(th_use_custom_icon) == "th_use_custom_icon") { ?>
 <div class="col2">
 <input type="button" name="upload-sm-icon1" id="upload-sm-icon1" class="button-secondary" value="Select Image">
+	</div>
+	<div class="col22">
 	<input type="text" name="th_sm_icon1" id="th_sm_icon1" class="regular-text" value="<?php  echo get_option('th_sm_icon1'); ?>">
 </div>
 	<?php } ?>
@@ -332,12 +406,14 @@ $th_custom5 = 'themehelper-icon5';
 	<option value="<?php echo $th_custom2; ?>" <?php selected( $option2['sm_select2'], $th_custom2 ); ?>> Custom Icon  </option>
 	</select>
 	</div>
-	<div class="col2">
-	<input type="text" name="themehelper_social_media_url2" value="<?php echo get_option(themehelper_social_media_url2); ?>">	
+	<div class="col22">
+	<input type="text" name="themehelper_social_media_url2" class="regular-text" value="<?php echo get_option(themehelper_social_media_url2); ?>">	
 	</div>	
 	<?php if (get_option(th_use_custom_icon) == "th_use_custom_icon") { ?>
 <div class="col2">
 <input type="button" name="upload-sm-icon2" id="upload-sm-icon2" class="button-secondary" value="Select Image">
+	</div>
+	<div class="col22">
 	<input type="text" name="th_sm_icon2" id="th_sm_icon2" class="regular-text" value="<?php  echo get_option('th_sm_icon2'); ?>">
 </div>
 	<?php } ?>
@@ -363,12 +439,14 @@ $th_custom5 = 'themehelper-icon5';
 	<option value="<?php echo $th_custom3; ?>" <?php selected( $option3['sm_select3'], $th_custom3 ); ?>> Custom Icon  </option>
 	</select>
 	</div>
-	<div class="col2">
-	<input type="text" name="themehelper_social_media_url3" value="<?php echo get_option(themehelper_social_media_url3); ?>">	
+	<div class="col22">
+	<input type="text" name="themehelper_social_media_url3" class="regular-text" value="<?php echo get_option(themehelper_social_media_url3); ?>">	
 	</div>
 	<?php if (get_option(th_use_custom_icon) == "th_use_custom_icon") { ?>
 <div class="col2">
 <input type="button" name="upload-sm-icon3" id="upload-sm-icon3" class="button-secondary" value="Select Image">
+	</div>
+	<div class="col22">
 	<input type="text" name="th_sm_icon3" id="th_sm_icon3" class="regular-text" value="<?php  echo get_option(th_sm_icon3); ?>">
 </div>	
 	<?php } ?>
@@ -394,12 +472,14 @@ $th_custom5 = 'themehelper-icon5';
 	<option value="<?php echo $th_custom4; ?>" <?php selected( $option4['sm_select4'], $th_custom4 ); ?>> Custom Icon  </option>
 	</select>
 	</div>
-	<div class="col2">
-	<input type="text" name="themehelper_social_media_url4" value="<?php echo get_option(themehelper_social_media_url4); ?>">	
+	<div class="col22">
+	<input type="text" name="themehelper_social_media_url4" class="regular-text" value="<?php echo get_option(themehelper_social_media_url4); ?>">	
 	</div>	
 	<?php if (get_option(th_use_custom_icon) == "th_use_custom_icon") { ?>
 <div class="col2">
 <input type="button" name="upload-sm-icon4" id="upload-sm-icon4" class="button-secondary" value="Select Image">
+	</div>
+	<div class="col22">
 	<input type="text" name="th_sm_icon4" id="th_sm_icon4" class="regular-text" value="<?php  echo get_option(th_sm_icon4); ?>">
 </div>	
 	<?php } ?>
@@ -425,47 +505,93 @@ $th_custom5 = 'themehelper-icon5';
 	<option value="<?php echo $th_custom5; ?>" <?php selected( $option5['sm_select5'], $th_custom5 ); ?>> Custom Icon  </option>
 	</select>
 	</div>
-	<div class="col2">
-	<input type="text" name="themehelper_social_media_url5" value="<?php echo get_option(themehelper_social_media_url5); ?>">	
+	<div class="col22">
+	<input type="text" name="themehelper_social_media_url5" class="regular-text" value="<?php echo get_option(themehelper_social_media_url5); ?>">	
 	</div>	
 <?php if (get_option(th_use_custom_icon) == "th_use_custom_icon") { ?>
 
 	<div class="col2">
 <input type="button" name="upload-sm-icon5" id="upload-sm-icon5" class="button-secondary" value="Select Image">
+	</div>
+	<div class="col22">
 	<input type="text" name="th_sm_icon5" id="th_sm_icon5" class="regular-text" value="<?php  echo get_option(th_sm_icon5); ?>">
 </div>
 <?php } ?>
-	</div>
-	
-	
-	
-	
-	</div>
-
+	</div>	
 		
-<div class="themehelper-plugin-container">
- <?php submit_button(); ?>
-</div>
+	    </div>
 
-	 </form>
-
-
-</div>
-
-<div class="themehelper-col-right">
-<div class="themehelper-plugin-container themehelper-right-panel">
-<h2> Donation </h2>
-<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-<input type="hidden" name="cmd" value="_s-xclick">
-<input type="hidden" name="hosted_button_id" value="T9TSDSNM5XT7E">
-<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-</form>
-</div>
-</div>
-
-
+		   <div id="tab5" class="tab">
+		   
+		    <div class="themehelper-container">
+		   <h2> Banner </h2> 
+		   </div>
 	
+<div class="themehelper-container">
+	
+	<h3> Banner 1 </h3>
+<p> Shortcode: [themehelper_banner1] </p>
+  <input type="text" name="themehelper_banner1" id="themehelper_banner1" class="regular-text" value="<?php  echo get_option('themehelper_banner1'); ?>">
+    <input type="button" name="upload-banner-btn1" id="upload-banner-btn1" class="button-secondary" value="Upload Image">
+	<div class="themehelper-img">
+	<?php
+	if (!get_option('themehelper_banner1') == '') {
+	?>
+	<img id="themehelper_banner1" src="<?php  echo get_option('themehelper_banner1'); ?>">
+	<?php 
+	}
+	?>
+	</div>
+	</div>
+	
+	
+	<div class="themehelper-container">
+	
+	<h3> Banner 2 </h3>
+<p> Shortcode: [themehelper_banner2] </p>
+  <input type="text" name="themehelper_banner2" id="themehelper_banner2" class="regular-text" value="<?php  echo get_option('themehelper_banner2'); ?>">
+    <input type="button" name="upload-banner-btn2" id="upload-banner-btn2" class="button-secondary" value="Upload Image">
+	<div class="themehelper-img">
+	<?php
+	if (!get_option('themehelper_banner2') == '') {
+	?>
+	<img id="themehelper_banner2" src="<?php  echo get_option('themehelper_banner2'); ?>">
+	<?php 
+	}
+	?>
+	</div>
+	</div>
+	
+		   
+		   </div>
+		
+		</div>
+
+</div>		
+</div>
+
+<div class="themehelper-header-save">  <?php submit_button(); ?> </div>
+
+</div>
+
+
+<script>
+jQuery(document).ready(function() {
+    jQuery('.th-tabs .tab-links a').on('click', function(e)  {
+        var currentAttrValue = jQuery(this).attr('href');
+ 
+        // Show/Hide Tabs
+        jQuery('.th-tabs ' + currentAttrValue).show().siblings().hide();
+ 
+        // Change/remove current tab to active
+        jQuery(this).parent('li').addClass('active').siblings().removeClass('active');
+ 
+        e.preventDefault();
+    });
+});
+</script>	
+	
+	</form>
 	
 	<?php
 }

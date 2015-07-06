@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: Theme Helper, theme addon, shortcode, color switcher, color scheme, theme, framework addon, framework, genesis, genesis framework,
 Requires at least: 4.0
 Tested up to: 4.2
-Stable tag: 1.03
+Stable tag: 1.04
 License: GPLv2 or later
 License URI: GPLv2 or later
 
@@ -55,11 +55,15 @@ Use shortcodes in the hook boxes, widgets and content.
 *Available shortcodes*
 
 *   Logo: [themehelper_logo]
+*	Secondary Logo [themehelper_secondary_logo]
 *   Company Name: [themehelper_company_name]
 *   Email:  [themehelper_email]
 *   Phone:  [themehelper_phone]
 *   Fax:  [themehelper_fax]
 *   Address:  [themehelper_address]
+
+*	Banner1: [themehelper_banner1]
+*	Banner2: [themehelper_banner2]
 
 
 = Color Scheme Switcher =
@@ -103,6 +107,11 @@ Settings page
 
 == Changelog ==
 
+= version 1.04 =
+
+* update ui
+* added secondary logo
+* added banner option
 
 = version 1.03 =
 

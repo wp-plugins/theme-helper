@@ -7,7 +7,7 @@
 
  * Description: A Theme Addon for wordpress frameworks  that creates option panel for users to easy update their Website Info. 
 
- * Version: 1.03
+ * Version: 1.04
 
  * Author: Rex Anthony D. Eubanas
 

@@ -1,62 +1,158 @@
 /************* theme helper admin css *********/
-
-
-
-.themehelper-plugin-container {
-  display: block;
-  width: 100%;
-  background-color: #ddd;
-  padding: 10px 20px;
-  box-sizing: border-box;
+.themehelper-wrap {
+  background-color: #efefef;
   border: 1px solid #999;
-  box-shadow: 1px 1px #333;
-  margin: 10px 0;
-}
-
-.themehelper-plugin-container.themehelper-plugin-fulltitle {
-  width: 97%;
-  color: #FFF;
-}
-
-.themehelper-col-left {
+  border-radius: 10px;
+margin: 20px 0;
+  }
+.themehelper-header-link {
   display: inline-block;
-  width: 75%;
   vertical-align: top;
+  margin: 15px 20px;
+}
+.themehelper-title {
+  display: inline-block;
+}
+.themehelper-header-save .submit {
+  margin: 0;
+  padding: 0;
+  text-align: right;
 }
 
-.themehelper-col-right {
-  display: inline-block;
-  width: 24%;
-  vertical-align: top;
-  text-align:center;
+.clear-both {
+clear:both;
 }
+
+.themehelper-header, .themehelper-header-save {
+  padding: 10px 30px;
+  border-bottom: 1px solid #dedede;
+  box-sizing: border-box;
+}
+
+.themehelper-donation {
+  float: right;
+}
+
+
+/***** theme helper tabs **********/
+
+ul.tab-links {
+  display: inline-block;
+  width: 20%;
+  margin: 0;
+  padding: 0;
+  float: left;
+}
+.tab-content {
+  padding: 0 20px 20px 20px;
+  background: #fff;
+  display: inline-block;
+  width: 79%;
+  vertical-align: top;
+  box-sizing: border-box;
+  background: #FFF;
+}
+li.active a, li.active a:hover, .tab-links a:hover {
+  background-color: #FFF;
+  color: #333;
+}
+
+.tab-links li {
+  margin: 0;
+  float: none;
+  list-style: none;
+  display: block;
+  box-sizing: border-box;
+}
+
+
+.tab-links a {
+  padding: 9px 15px;
+  display: inline-block;
+  background-color: #efefef;
+  font-size: 14px;
+  font-weight: 600;
+  color: #999;
+  transition: all linear 0.15s;
+  width: 100%;
+  box-sizing: border-box;
+  text-decoration: none;
+  border-bottom: 1px solid #dedede;
+   background-repeat: no-repeat;
+  background-position: 10px 10px;
+  padding-left: 40px;
+ }
+
+ li.th-menu-deatils a {
+  background-position: 10px -70px;
+}
+li.th-menu-color a {
+  background-position: 10px -16px;
+}
+li.th-menu-sm a {
+  background-position: 10px -100px;
+}
+li.th-menu-banner a {
+  background-position: 10px -40px;
+}
+ 
+#adduser .form-field input, input.regular-text {
+  background-color: #efefef;
+  color: #999;
+  padding: 5px 10px;
+  width: 85%;
+  box-sizing: border-box;
+}
+  .themehelper-img {
+  padding: 10px 0;
+}
+.themehelper-content {
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+}
+
 
 /********** end ***********/	
 	
 	
-	
-	.themehelper-container {
+	.helper-col textarea, .helper-col input {
+  width: 90%;
+
+  box-sizing: border-box;
+    background-color: #fafafa;
+  color: #999;
+  padding: 5px 10px;
+}
+.themehelper-container {
   display: block;
   width: 100%;
-
+  border-bottom: 1px solid #dedede;
 }
 
 .col2 {
   display: inline-block;
   vertical-align: top;
+  width: 13%;
 }
-	.theme.helper-col {
+.col22 {
+  display: inline-block;
+  width: 36%;
+}
+.theme.helper-col {
   display: inline-block;
   width: 30%;
-  vertical-align:top;
+  vertical-align: top;
+  margin: 10px 0;
+  box-sizing: border-box;
 }
 
-input[type=radio].color-box {
-  border: 3px solid #FFF;
+input[type=radio].color-box, .color-box {
+  border: 3px solid #eee;
   border-radius: 0;
-
   height: 50px;
+  box-sizing: border-box;
   width: 50px;
+  margin: 10px 0 0;
 }
 
 .color-box-container {
@@ -66,9 +162,14 @@ input[type=radio].color-box {
   margin-right: 20px;
 }
 
+.themehelper-container h2 {
+  font-size: 25px;
+  font-weight: bold;
+}
 .color-box-container .color-box-field {
   width: 52px;
   margin: 10px 0;
+  
 }
 
 
@@ -76,3 +177,49 @@ input[type=radio].color-box {
 	width:100%;
 	height:100px;
 }
+.themehelper-social-media-container {
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 10px;
+}
+
+.themehelper-textarea, .color-box-container .color-box-field, .col input[type="text"] {
+background-color: #efefef;
+  color: #666;
+}
+
+
+/****tabs ****/
+
+/*----- Tabs -----*/
+.th-tabs {
+    width:100%;
+    display:inline-block;
+}
+ 
+    /*----- Tab Links -----*/
+    /* Clearfix */
+    .tab-links:after {
+        display:block;
+        clear:both;
+        content:'';
+    }
+ 
+
+ 
+   
+ 
+
+ 
+ 
+ 
+    /*----- Content of Tabs -----*/
+
+ 
+        .tab {
+            display:none;
+        }
+ 
+        .tab.active {
+            display:block;
+        }

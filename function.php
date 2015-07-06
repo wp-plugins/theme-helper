@@ -12,6 +12,41 @@ return $output;
 
 add_shortcode( 'themehelper_logo', 'th_logo_shortcode' );
 
+function th_secondary_logo_shortcode ( $logo ) {
+
+$logo = get_option(themehelper_secondary_logo);
+$company_name = get_option(themehelper_companyname);
+$home = home_url();
+$output = "<a href='".$home."' alt='".$company_name." Logo'><img src='".$logo."'></a>";
+
+return $output;
+}
+
+add_shortcode( 'themehelper_secondary_logo', 'th_secondary_logo_shortcode' );
+
+function th_banner1_shortcode ( $banner ) {
+
+$banner = get_option(themehelper_banner1);
+$output = "<img src='".$banner."'>";
+
+return $output;
+}
+
+add_shortcode( 'themehelper_banner1', 'th_banner1_shortcode' );
+
+
+function th_banner2_shortcode ( $banner ) {
+
+$banner = get_option(themehelper_banner2);
+$output = "<img src='".$banner."'>";
+
+return $output;
+}
+
+add_shortcode( 'themehelper_banner2', 'th_banner2_shortcode' );
+
+
+
 function th_company_shortcode ( $atts ) {
 	
   
