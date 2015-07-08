@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: Theme Helper, theme addon, shortcode, color switcher, color scheme, theme, framework addon, framework, genesis, genesis framework,
 Requires at least: 4.0
 Tested up to: 4.2
-Stable tag: 1.05
+Stable tag: 1.06
 License: GPLv2 or later
 License URI: GPLv2 or later
 
@@ -76,7 +76,11 @@ Select which part of your theme will switch color by adding only the CSS Propert
 
 note: don't include the value of the css, add only the css property
 
-Minimize the css in the field by adding the default theme helper class "theme-helper-bg" for background and "theme-helper-txt" for text 
+Minimize the css in the field by adding the default theme helper 
+
+class "theme-helper-bg" for background
+class "theme-helper-txt" for text 
+class "theme-helper-border" for border 
 
 = Social Media =
 
@@ -106,6 +110,12 @@ Available Attributes
 Settings page
 
 == Changelog ==
+
+= version 1.06 =
+
+* fixed bugs social icon text overlap
+* added banner link
+* added  option for border color switcher 
 
 = version 1.05 =
 

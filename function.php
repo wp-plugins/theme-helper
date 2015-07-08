@@ -26,9 +26,15 @@ add_shortcode( 'themehelper_secondary_logo', 'th_secondary_logo_shortcode' );
 
 function th_banner1_shortcode ( $banner ) {
 
+$banner_url = get_option(themehelper_url_banner1);
 $banner = get_option(themehelper_banner1);
-$output = "<img src='".$banner."'>";
 
+if ($banner_url) {
+$output = "<a href=".$banner_url."><img src='".$banner."'></a>";
+}
+else {
+$output = "<img src='".$banner."'>";	
+}
 return $output;
 }
 
@@ -37,9 +43,16 @@ add_shortcode( 'themehelper_banner1', 'th_banner1_shortcode' );
 
 function th_banner2_shortcode ( $banner ) {
 
+$banner_url = get_option(themehelper_url_banner2);
 $banner = get_option(themehelper_banner2);
-$output = "<img src='".$banner."'>";
 
+
+if ($banner_url) {
+$output = "<a href=".$banner_url."><img src='".$banner."'></a>";
+}
+else {
+$output = "<img src='".$banner."'>";	
+}
 return $output;
 }
 
@@ -248,8 +261,8 @@ function th_color_scheme (  ) {
 	?>	
 
 	<style id="themehelper-style"><?php	$th_color_scheme = get_option(themehelper_color);	?>
-	<?php echo  get_option(themehelper_css_color_bg); ?> {	background-color: <?php echo $th_color_scheme['color_scheme_option']; ?> !important;	} <?php echo  get_option(themehelper_css_color_txt); ?> {	color: <?php echo $th_color_scheme['color_scheme_option']; ?> !important;	}
-	.theme-helper a.themehelper-icon:hover, a.themehelper-icon.theme, .theme-helper .theme-helper-bg  {	background-color: <?php echo $th_color_scheme['color_scheme_option']; ?>; } .theme-helper .theme-helper-txt ( color:<?php echo $th_color_scheme['color_scheme_option']; ?>; )
+	<?php echo  get_option(themehelper_css_color_bg); ?> {	background-color: <?php echo $th_color_scheme['color_scheme_option']; ?> !important;	} <?php echo  get_option(themehelper_css_color_txt); ?> {	color: <?php echo $th_color_scheme['color_scheme_option']; ?> !important;	} <?php echo  get_option(themehelper_css_color_border); ?> {	border-color: <?php echo $th_color_scheme['color_scheme_option']; ?> !important;	}
+	.theme-helper a.themehelper-icon:hover, a.themehelper-icon.theme, .theme-helper .theme-helper-bg  {	background-color: <?php echo $th_color_scheme['color_scheme_option']; ?>; } .theme-helper .theme-helper-txt ( color:<?php echo $th_color_scheme['color_scheme_option']; ?>; ) .theme-helper .theme-helper-border ( border-color:<?php echo $th_color_scheme['color_scheme_option']; ?>; )
 	</style>
 	
 	<style>
@@ -314,8 +327,10 @@ jQuery( ".themehelper-color-switch" ).click(function() {
   var color = jQuery( this ).css( "background-color" );
   jQuery( "#themehelper-style" ).html( " <?php echo  get_option(themehelper_css_color_bg); ?> { background-color:" +
 	color + " !important; } <?php echo  get_option(themehelper_css_color_txt); ?> { color:" +
+	color + " !important; } <?php echo  get_option(themehelper_css_color_border); ?> { border-color:" +
 	color + "!important; } .theme-helper a.themehelper-icon:hover, a.themehelper-icon.theme, .theme-helper .theme-helper-bg { background-color:" +
 	color + "; } .theme-helper-txt { color:" +
+	color + "; } .theme-helper-border { border-color:" +
 	color +	"; }" ).appendTo( "footer" );
 });
 </script>

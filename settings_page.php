@@ -32,6 +32,7 @@ register_setting( 'th_themehelper_settings_group', 'themehelper_color_option5' )
 register_setting( 'th_themehelper_settings_group', 'th_activate_color_switcher' );
 register_setting( 'th_themehelper_settings_group', 'themehelper_css_color_bg' );
 register_setting( 'th_themehelper_settings_group', 'themehelper_css_color_txt' );
+register_setting( 'th_themehelper_settings_group', 'themehelper_css_color_border' );
 
 register_setting( 'th_themehelper_settings_group', 'themehelper_social_media1' );
 register_setting( 'th_themehelper_settings_group', 'themehelper_social_media_url1' );
@@ -54,6 +55,10 @@ register_setting( 'th_themehelper_settings_group', 'th_use_custom_icon' );
 
 register_setting( 'th_themehelper_settings_group', 'themehelper_banner1' );
 register_setting( 'th_themehelper_settings_group', 'themehelper_banner2' );
+register_setting( 'th_themehelper_settings_group', 'themehelper_url_banner1' );
+register_setting( 'th_themehelper_settings_group', 'themehelper_url_banner2' );
+
+
 
 
 }
@@ -306,7 +311,12 @@ $echo = true;
 <p> Control your Text Color Scheme by adding only the CSS Property here. Example " body, h1, h2, h3, h4, h5, h6, p " </p>
 <textarea name="themehelper_css_color_txt" class="themehelper-textarea"> <?php echo  get_option(themehelper_css_color_txt); ?> </textarea>
 </div>
-		  
+		 
+ <div class="themehelper-container">
+<h4> Border Color Switcher </h4>
+<p> Control your Border Color Scheme by adding only the CSS Property here. Example " body, h1, h2, h3, h4, h5, h6, p " </p>
+<textarea name="themehelper_css_color_border" class="themehelper-textarea"> <?php echo  get_option(themehelper_css_color_border); ?> </textarea>
+</div>		 
 		  
         </div>
 
@@ -542,6 +552,8 @@ $th_custom5 = 'themehelper-icon5';
 	}
 	?>
 	</div>
+	<p> Banner 1 Link </p>
+	<p><input type="text" name="themehelper_url_banner1" class="regular-text" value="<?php  echo get_option('themehelper_url_banner1'); ?>"></p>
 	</div>
 	
 	
@@ -560,6 +572,8 @@ $th_custom5 = 'themehelper-icon5';
 	}
 	?>
 	</div>
+		<p> Banner 2 Link </p>
+	<p><input type="text" name="themehelper_url_banner2" class="regular-text" value="<?php  echo get_option('themehelper_url_banner2'); ?>"></p>
 	</div>
 	
 		   
