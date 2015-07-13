@@ -222,19 +222,16 @@ function th_themehelper_css() {
 wp_register_style( 'th_themehelper_css', plugin_dir_url( __FILE__ ) . 'css/themehelper-css.css' );
         wp_enqueue_style( 'th_themehelper_css' );
 		
-	wp_register_script( 'th_thehelper_color_switcher_js', plugin_dir_url( __FILE__ ) . '/js/themehelper-color-swicher.js' );
-		wp_enqueue_script( 'th_thehelper_color_switcher_js' );	
-		
-		
-					
 				
 }
 
 add_action('wp_print_styles', 'th_themehelper_css');
 
+
+
 function th_themehelper_admin_css($hook) {
 
-wp_register_script( 'th_thehelper_js', plugin_dir_url( __FILE__ ) . '/js/themehelper-js.js' );
+wp_register_script( 'th_thehelper_js', plugin_dir_url( __FILE__ ) . 'js/themehelper-js.js' );
     wp_enqueue_script( 'th_thehelper_js' );
 	
 	wp_register_style( 'th_themehelper_admin_css', plugin_dir_url( __FILE__ ) . 'css/themehelper-admin-css.css' );
@@ -250,26 +247,54 @@ function th_body_class($classes) {
 }
 add_filter('body_class', 'th_body_class');
 
-// switcher
-function th_color_scheme (  ) {
+
+function th_color_scheme () {
 	
 	$th_color_scheme = get_option(themehelper_color);
 	$body = get_option('th__body_color_scheme');
+
+
+// switcher
+
+// The value to compare with (the value of the checkbox below).
+$option1 = get_option(themehelper_color_option1); 
+$option2 = get_option(themehelper_color_option2); 
+$option3 = get_option(themehelper_color_option3); 
+$option4 = get_option(themehelper_color_option4); 
+$option5 = get_option(themehelper_color_option5);
+
+if ($th_color_scheme[color_scheme_option] == $option1) {
+	$light_color_scheme = get_option(themehelper_color_option1_light);
+	$dark_color_scheme = get_option(themehelper_color_option1_dark);
+}
+elseif ($th_color_scheme[color_scheme_option] == $option2) {
+	$light_color_scheme = get_option(themehelper_color_option2_light);
+	$dark_color_scheme = get_option(themehelper_color_option2_dark);
+}
+elseif ($th_color_scheme[color_scheme_option] == $option3) {
+	$light_color_scheme = get_option(themehelper_color_option3_light);
+	$dark_color_scheme = get_option(themehelper_color_option3_dark);
+}
+elseif ($th_color_scheme[color_scheme_option] == $option4) {
+	$light_color_scheme = get_option(themehelper_color_option4_light);
+	$dark_color_scheme = get_option(themehelper_color_option4_dark);
+}
+elseif ($th_color_scheme[color_scheme_option] == $option5) {
+	$light_color_scheme = get_option(themehelper_color_option5_light);
+	$dark_color_scheme = get_option(themehelper_color_option5_dark);
+}
+
 	
 	$home = plugins_url();
 	
 	?>	
-
-	<style id="themehelper-style"><?php	$th_color_scheme = get_option(themehelper_color);	?>
-	<?php echo  get_option(themehelper_css_color_bg); ?> {	background-color: <?php echo $th_color_scheme['color_scheme_option']; ?> !important;	} <?php echo  get_option(themehelper_css_color_txt); ?> {	color: <?php echo $th_color_scheme['color_scheme_option']; ?> !important;	} <?php echo  get_option(themehelper_css_color_border); ?> {	border-color: <?php echo $th_color_scheme['color_scheme_option']; ?> !important;	}
-	.theme-helper a.themehelper-icon:hover, a.themehelper-icon.theme, .theme-helper .theme-helper-bg  {	background-color: <?php echo $th_color_scheme['color_scheme_option']; ?>; } .theme-helper .theme-helper-txt ( color:<?php echo $th_color_scheme['color_scheme_option']; ?>; ) .theme-helper .theme-helper-border ( border-color:<?php echo $th_color_scheme['color_scheme_option']; ?>; )
+	<style id="themehelper-style">
+	<?php echo  get_option(themehelper_css_color_bg); ?> {	background-color: <?php echo $th_color_scheme['color_scheme_option']; ?> !important;	}	<?php echo  get_option(themehelper_css_color_bg_light); ?> {	background-color: <?php echo $light_color_scheme; ?> !important;	}	<?php echo  get_option(themehelper_css_color_bg_dark); ?> {	background-color: <?php echo $dark_color_scheme; ?> !important;	}	<?php echo  get_option(themehelper_css_color_txt); ?> {	color: <?php echo $th_color_scheme['color_scheme_option']; ?> !important;	} 	<?php echo  get_option(themehelper_css_color_txt_light); ?> {	color: <?php echo $light_color_scheme; ?> !important;	} 	<?php echo  get_option(themehelper_css_color_txt_dark); ?> {	color: <?php echo $dark_color_scheme; ?> !important;	} 	<?php echo  get_option(themehelper_css_color_border); ?> {	border-color: <?php echo $th_color_scheme['color_scheme_option']; ?> !important;	}	<?php echo  get_option(themehelper_css_color_border_light); ?> {	border-color: <?php echo $light_color_scheme; ?> !important;	}	<?php echo  get_option(themehelper_css_color_border_dark); ?> {	border-color: <?php echo $dark_color_scheme; ?> !important;	}	.theme-helper a.themehelper-icon:hover, a.themehelper-icon.theme, .theme-helper .theme-helper-bg  {	background-color: <?php echo $th_color_scheme['color_scheme_option']; ?>; } 	.theme-helper .theme-helper-bg-light  {	background-color: <?php echo $light_color_scheme; ?>; }	.theme-helper .theme-helper-bg-dark  {	background-color: <?php echo $dark_color_scheme; ?>; }	.theme-helper .theme-helper-txt { color:<?php echo $th_color_scheme['color_scheme_option']; ?>; }	.theme-helper .theme-helper-txt-light { color:<?php echo $light_color_scheme; ?>; }	.theme-helper .theme-helper-txt-dark { color:<?php echo $dark_color_scheme; ?>; }	.theme-helper .theme-helper-border { border-color:<?php echo $th_color_scheme['color_scheme_option']; ?>; }	.theme-helper .theme-helper-border-light { border-color:<?php echo $light_color_scheme; ?>; }		.theme-helper .theme-helper-border-dark { border-color:<?php echo $dark_color_scheme; ?>; }
 	</style>
-	
-	<style>
-	a.themehelper-icon { background-image: url("<?php echo  plugins_url( 'images/themehelper-sprite.png', __FILE__ ); ?>");  }
-	</style>
+	<style>	a.themehelper-icon { background-image: url("<?php echo  plugins_url( 'images/themehelper-sprite.png', __FILE__ ); ?>");  }	</style>
 	
 <?php
+	
  }
 
 add_action( 'wp_footer', 'th_color_scheme' );
@@ -278,11 +303,35 @@ add_action( 'wp_footer', 'th_color_scheme' );
 
 function th_color_scheme_switcher() {
 
+$th_color_scheme = get_option(themehelper_color);
+
 $option1 = get_option(themehelper_color_option1); 
 $option2 = get_option(themehelper_color_option2); 
 $option3 = get_option(themehelper_color_option3); 
 $option4 = get_option(themehelper_color_option4); 
 $option5 = get_option(themehelper_color_option5); 
+
+
+if ($th_color_scheme[color_scheme_option] == $option1) {
+	$light_color_scheme = get_option(themehelper_color_option1_light);
+	$dark_color_scheme = get_option(themehelper_color_option1_dark);
+}
+elseif ($th_color_scheme[color_scheme_option] == $option2) {
+	$light_color_scheme = get_option(themehelper_color_option2_light);
+	$dark_color_scheme = get_option(themehelper_color_option2_dark);
+}
+elseif ($th_color_scheme[color_scheme_option] == $option3) {
+	$light_color_scheme = get_option(themehelper_color_option3_light);
+	$dark_color_scheme = get_option(themehelper_color_option3_dark);
+}
+elseif ($th_color_scheme[color_scheme_option] == $option4) {
+	$light_color_scheme = get_option(themehelper_color_option4_light);
+	$dark_color_scheme = get_option(themehelper_color_option4_dark);
+}
+elseif ($th_color_scheme[color_scheme_option] == $option5) {
+	$light_color_scheme = get_option(themehelper_color_option5_light);
+	$dark_color_scheme = get_option(themehelper_color_option5_dark);
+}
 
 ?>
 
@@ -291,27 +340,27 @@ $option5 = get_option(themehelper_color_option5);
 <?php 
 if (!$option1 == '') { 
  ?>
-<div class="themehelper-color-switch" style="background-color:<?php echo $option1; ?>;"></div>
+<div class="themehelper-color-switch" style="background-color:<?php echo $option1; ?>; color:<?php echo get_option(themehelper_color_option1_light); ?>; outline-color:<?php echo get_option(themehelper_color_option1_dark); ?>;"></div>
 <?php
  }
 if (!$option2 == '') { 
  ?>
-<div class="themehelper-color-switch" style="background-color:<?php echo $option2; ?>"></div>
+<div class="themehelper-color-switch" style="background-color:<?php echo $option2; ?>; color:<?php echo get_option(themehelper_color_option2_light); ?>; outline-color:<?php echo get_option(themehelper_color_option2_dark); ?>;"></div>
 <?php
  }
 if (!$option3 == '') { 
  ?>
-<div class="themehelper-color-switch" style="background-color:<?php echo $option3; ?>"></div>
+<div class="themehelper-color-switch" style="background-color:<?php echo $option3; ?>; color:<?php echo get_option(themehelper_color_option3_light); ?>; outline-color:<?php echo get_option(themehelper_color_option3_dark); ?>;"></div>
 <?php
  }
 if (!$option4 == '') { 
  ?>
-<div class="themehelper-color-switch" style="background-color:<?php echo $option4; ?>"></div>
+<div class="themehelper-color-switch" style="background-color:<?php echo $option4; ?>; color:<?php echo get_option(themehelper_color_option4_light); ?>; outline-color:<?php echo get_option(themehelper_color_option4_dark); ?>;"></div>
 <?php
  }
 if (!$option5 == '') { 
  ?>
-<div class="themehelper-color-switch" style="background-color:<?php echo $option5; ?>"></div>
+<div class="themehelper-color-switch" style="background-color:<?php echo $option5; ?>; color:<?php echo get_option(themehelper_color_option5_light); ?>; outline-color:<?php echo get_option(themehelper_color_option5_dark); ?>;"></div>
  </div>  
  <?php
  } 
@@ -325,14 +374,33 @@ $htmlatt = get_option(th_html_attribute);
  <script>
 jQuery( ".themehelper-color-switch" ).click(function() {
   var color = jQuery( this ).css( "background-color" );
+  var light = jQuery( this ).css( "color" );
+  var dark = jQuery( this ).css( "outline-color" );
   jQuery( "#themehelper-style" ).html( " <?php echo  get_option(themehelper_css_color_bg); ?> { background-color:" +
-	color + " !important; } <?php echo  get_option(themehelper_css_color_txt); ?> { color:" +
-	color + " !important; } <?php echo  get_option(themehelper_css_color_border); ?> { border-color:" +
-	color + "!important; } .theme-helper a.themehelper-icon:hover, a.themehelper-icon.theme, .theme-helper .theme-helper-bg { background-color:" +
-	color + "; } .theme-helper-txt { color:" +
-	color + "; } .theme-helper-border { border-color:" +
-	color +	"; }" ).appendTo( "footer" );
+	color + " !important; } <?php echo  get_option(themehelper_css_color_bg_light); ?> { background-color:" +
+	light + " !important; } <?php echo  get_option(themehelper_css_color_bg_dark); ?> { background-color:" +
+	dark + " !important; } <?php echo  get_option(themehelper_css_color_txt); ?> { color:" +
+	color + " !important; } <?php echo  get_option(themehelper_css_color_txt_light); ?> { color:" +
+	light + " !important; } <?php echo  get_option(themehelper_css_color_txt_dark); ?> { color:" +
+	dark + " !important; } <?php echo  get_option(themehelper_css_color_border); ?> { border-color:" +
+	color + " !important; } <?php echo  get_option(themehelper_css_color_border_light); ?> { border-color:" +
+	light + " !important; } <?php echo  get_option(themehelper_css_color_border_dark); ?> { border-color:" +
+	dark + "!important; } .theme-helper a.themehelper-icon:hover, a.themehelper-icon.theme, .theme-helper .theme-helper-bg { background-color:" +
+	color + "; } .theme-helper-bg-light { background-color:" +
+	light + "; } .theme-helper-bg-dark { background-color:" +
+	dark + "; } .theme-helper-txt { color:" +
+	color + "; } .theme-helper-txt-light { color:" +
+	light + "; } .theme-helper-txt-dark { color:" +
+	dark + "; } .theme-helper-border { border-color:" +
+	color + "; } .theme-helper-border-light { border-color:" +
+	light + "; } .theme-helper-border-dark { border-color:" +
+	dark +	"; }" ).appendTo( "footer" );
 });
+</script>
+
+<script>
+jQuery( ".search-form input[type='search']" ).addClass( "search-box" );
+jQuery( ".search-form input[type='submit']" ).addClass( "search-button" );
 </script>
 
 	<?php
@@ -344,4 +412,5 @@ add_action('wp_footer','th_color_scheme_switcher');
 
 
 }
+
 ?>

@@ -152,29 +152,20 @@ input[type=radio].color-box, .color-box {
   height: 50px;
   box-sizing: border-box;
   width: 50px;
-  margin: 10px 0 0;
+ margin: 5px auto;
+  display: block;
 }
 
-.color-box-container {
-  display: inline-block;
-  width: 50px;
-  text-align: center;
-  margin-right: 20px;
-}
+
 
 .themehelper-container h2 {
   font-size: 25px;
   font-weight: bold;
 }
-.color-box-container .color-box-field {
-  width: 52px;
-  margin: 10px 0;
-  
-}
 
 
 .themehelper-textarea {
-	width:100%;
+	width:100% !important;
 	height:100px;
 }
 .themehelper-social-media-container {
@@ -183,10 +174,67 @@ input[type=radio].color-box, .color-box {
   margin-bottom: 10px;
 }
 
-.themehelper-textarea, .color-box-container .color-box-field, .col input[type="text"] {
-background-color: #efefef;
-  color: #666;
+.color-box-scheme {
+  display: inline-block;
+  width: 30%;
 }
+.col3 {
+  display: inline-block;
+  width: 32%;
+  margin-bottom: 10px;
+  padding: 0;
+  box-sizing: border-box;
+  vertical-align: top;
+}
+.col3 h4 {
+  margin: 0 0 5px;
+}
+
+
+/******** switcher *********/
+
+.color-box-container-wrap {
+  position: relative;
+  min-height: 170px;
+  clear: both;
+  margin: 25px 0;
+}
+
+.color-box-container {
+  display: inline-block;
+}
+.color-box-container label {
+  background: #eee;
+  padding: 5px;
+  border: 1px solid #ccc;
+  margin-left: -1px;
+  position: relative;
+  left: 1px;
+  display: block;
+}
+
+.color-tab-content {
+  position: absolute;
+  top: 88px;
+  left: 0;
+  background: white;
+  right: 0;
+  bottom: 0;
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+}
+
+[type=radio]:checked ~ label {
+  background: white;
+  border-bottom: 1px solid white;
+  z-index: 2;
+}
+[type=radio]:checked ~ label ~ .color-tab-content {
+  z-index: 1;
+}
+
+/**** switcher end *****/
+
 
 
 /****tabs ****/

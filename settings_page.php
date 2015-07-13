@@ -24,15 +24,34 @@ register_setting( 'th_themehelper_settings_group', 'themehelper_fax' );
 register_setting( 'th_themehelper_settings_group', 'themehelper_address' );
 register_setting( 'th_themehelper_settings_group', 'themehelper_color' );
 register_setting( 'th_themehelper_settings_group', 'themehelper_color_option1' );
+register_setting( 'th_themehelper_settings_group', 'themehelper_color_option1_light' );
+register_setting( 'th_themehelper_settings_group', 'themehelper_color_option1_dark' );
 register_setting( 'th_themehelper_settings_group', 'themehelper_color_option2' );
+register_setting( 'th_themehelper_settings_group', 'themehelper_color_option2_light' );
+register_setting( 'th_themehelper_settings_group', 'themehelper_color_option2_dark' );
 register_setting( 'th_themehelper_settings_group', 'themehelper_color_option3' );
+register_setting( 'th_themehelper_settings_group', 'themehelper_color_option3_light' );
+register_setting( 'th_themehelper_settings_group', 'themehelper_color_option3_dark' );
 register_setting( 'th_themehelper_settings_group', 'themehelper_color_option4' );
+register_setting( 'th_themehelper_settings_group', 'themehelper_color_option4_light' );
+register_setting( 'th_themehelper_settings_group', 'themehelper_color_option4_dark' );
 register_setting( 'th_themehelper_settings_group', 'themehelper_color_option5' );
+register_setting( 'th_themehelper_settings_group', 'themehelper_color_option5_light' );
+register_setting( 'th_themehelper_settings_group', 'themehelper_color_option5_dark' );
 
 register_setting( 'th_themehelper_settings_group', 'th_activate_color_switcher' );
+
 register_setting( 'th_themehelper_settings_group', 'themehelper_css_color_bg' );
+register_setting( 'th_themehelper_settings_group', 'themehelper_css_color_bg_light' );
+register_setting( 'th_themehelper_settings_group', 'themehelper_css_color_bg_dark' );
+
 register_setting( 'th_themehelper_settings_group', 'themehelper_css_color_txt' );
+register_setting( 'th_themehelper_settings_group', 'themehelper_css_color_txt_light' );
+register_setting( 'th_themehelper_settings_group', 'themehelper_css_color_txt_dark' );
+
 register_setting( 'th_themehelper_settings_group', 'themehelper_css_color_border' );
+register_setting( 'th_themehelper_settings_group', 'themehelper_css_color_border_light' );
+register_setting( 'th_themehelper_settings_group', 'themehelper_css_color_border_dark' );
 
 register_setting( 'th_themehelper_settings_group', 'themehelper_social_media1' );
 register_setting( 'th_themehelper_settings_group', 'themehelper_social_media_url1' );
@@ -59,6 +78,7 @@ register_setting( 'th_themehelper_settings_group', 'themehelper_url_banner1' );
 register_setting( 'th_themehelper_settings_group', 'themehelper_url_banner2' );
 
 
+register_setting( 'th_themehelper_settings_group', 'switch' );
 
 
 }
@@ -259,40 +279,101 @@ $option5 = get_option(themehelper_color_option5);
 
 // True by default, just here to make things clear.
 $echo = true;
+
+
+
+
+
  
  ?>
  
  <h3> Select Default Color Scheme </h3>
  
- <div class="themehelper-container">
+ <div class="themehelper-container color-box-container-wrap">
 
  
 <div class="color-box-container">
-<input type="radio" name="themehelper_color[color_scheme_option]" value="<?php echo get_option(themehelper_color_option1); ?>" class="color-box color-box-option1" <?php checked( $checked, $option1, $echo ); ?>> 
-<input type="text" name="themehelper_color_option1" value="<?php echo get_option(themehelper_color_option1); ?>" class="color-box-field">
+<input id="tab-1" type="radio" name="themehelper_color[color_scheme_option]" value="<?php echo $option1; ?>" class="color-box color-box-option1" <?php checked( $checked, $option1, $echo ); ?>> 
+<label for="color-tab-1"> Option 1</label>
+ <div class="color-tab-content">
+ <div class="color-box-scheme"> Primary Color 
+<input type="text" name="themehelper_color_option1" value="<?php echo $option1; ?>" class="color-box-field"> 
+</div>
+ <div class="color-box-scheme">  Light Color 
+ <input type="text" name="themehelper_color_option1_light" value="<?php echo get_option(themehelper_color_option1_light); ?>" class="color-box-field"> 
+</div>
+  <div class="color-box-scheme">  Dark Color 
+<input type="text" name="themehelper_color_option1_dark" value="<?php echo get_option(themehelper_color_option1_dark); ?>" class="color-box-field"> 
+</div>
+ </div>
 </div>
 
 
 
 <div class="color-box-container">
-<input type="radio" name="themehelper_color[color_scheme_option]" value="<?php echo get_option(themehelper_color_option2); ?>" class="color-box color-box-option2" <?php checked( $checked, $option2, $echo ); ?>> 
-<input type="text" name="themehelper_color_option2" value="<?php echo get_option(themehelper_color_option2); ?>" class="color-box-field">
+<input id="tab-2" type="radio" name="themehelper_color[color_scheme_option]" value="<?php echo get_option(themehelper_color_option2); ?>" class="color-box color-box-option2" <?php checked( $checked, $option2, $echo ); ?>> 
+ <label for="color-tab-2">Option 2</label>
+  <div class="color-tab-content">
+<div class="color-box-scheme"> Primary Color 
+<input type="text" name="themehelper_color_option2" value="<?php echo $option2; ?>" class="color-box-field"> 
+</div>
+ <div class="color-box-scheme">  Light Color 
+ <input type="text" name="themehelper_color_option2_light" value="<?php echo get_option(themehelper_color_option2_light); ?>" class="color-box-field"> 
+</div>
+  <div class="color-box-scheme">  Dark Color 
+<input type="text" name="themehelper_color_option2_dark" value="<?php echo get_option(themehelper_color_option2_dark); ?>" class="color-box-field"> 
+</div>
+ </div>
+ </div>
+
+<div class="color-box-container">
+<input id="tab-3" type="radio" name="themehelper_color[color_scheme_option]" value="<?php echo get_option(themehelper_color_option3); ?>" class="color-box color-box-option3" <?php checked( $checked, $option3, $echo ); ?> > 
+ <label for="color-tab-3"> Option 3 </label>
+  <div class="color-tab-content">
+<div class="color-box-scheme"> Primary Color 
+<input type="text" name="themehelper_color_option3" value="<?php echo $option3; ?>" class="color-box-field"> 
+</div>
+ <div class="color-box-scheme">  Light Color 
+ <input type="text" name="themehelper_color_option3_light" value="<?php echo get_option(themehelper_color_option3_light); ?>" class="color-box-field"> 
+</div>
+  <div class="color-box-scheme">  Dark Color 
+<input type="text" name="themehelper_color_option3_dark" value="<?php echo get_option(themehelper_color_option3_dark); ?>" class="color-box-field"> 
+</div>
+ </div>
+ </div>
+
+<div class="color-box-container">
+<input id="tab-4" type="radio" name="themehelper_color[color_scheme_option]" value="<?php echo get_option(themehelper_color_option4); ?>" class="color-box color-box-option4" <?php checked( $checked, $option4, $echo ); ?> > 
+<label for="color-tab-4"> Option 4 </label>
+  <div class="color-tab-content">
+<div class="color-box-scheme"> Primary Color 
+<input type="text" name="themehelper_color_option4" value="<?php echo $option4; ?>" class="color-box-field"> 
+</div>
+ <div class="color-box-scheme">  Light Color 
+ <input type="text" name="themehelper_color_option4_light" value="<?php echo get_option(themehelper_color_option4_light); ?>" class="color-box-field"> 
+</div>
+  <div class="color-box-scheme">  Dark Color 
+<input type="text" name="themehelper_color_option4_dark" value="<?php echo get_option(themehelper_color_option4_dark); ?>" class="color-box-field"> 
+</div>
+ </div>
 </div>
 
 <div class="color-box-container">
-<input type="radio" name="themehelper_color[color_scheme_option]" value="<?php echo get_option(themehelper_color_option3); ?>" class="color-box color-box-option3" <?php checked( $checked, $option3, $echo ); ?> > 
-<input type="text" name="themehelper_color_option3" value="<?php echo get_option(themehelper_color_option3); ?>" class="color-box-field">
+<input id="tab-5" type="radio" name="themehelper_color[color_scheme_option]" value="<?php echo get_option(themehelper_color_option5); ?>" class="color-box color-box-option5" <?php checked( $checked, $option5, $echo ); ?> > 
+<label for="color-tab-5"> Option 5 </label>
+  <div class="color-tab-content">
+<div class="color-box-scheme"> Primary Color 
+<input type="text" name="themehelper_color_option5" value="<?php echo $option5; ?>" class="color-box-field"> 
+</div>
+ <div class="color-box-scheme">  Light Color 
+ <input type="text" name="themehelper_color_option5_light" value="<?php echo get_option(themehelper_color_option5_light); ?>" class="color-box-field"> 
+</div>
+  <div class="color-box-scheme">  Dark Color 
+<input type="text" name="themehelper_color_option5_dark" value="<?php echo get_option(themehelper_color_option5_dark); ?>" class="color-box-field"> 
+</div>
+ </div>
 </div>
 
-<div class="color-box-container">
-<input type="radio" name="themehelper_color[color_scheme_option]" value="<?php echo get_option(themehelper_color_option4); ?>" class="color-box color-box-option4" <?php checked( $checked, $option4, $echo ); ?> > 
-<input type="text" name="themehelper_color_option4" value="<?php echo get_option(themehelper_color_option4); ?>" class="color-box-field">
-</div>
-
-<div class="color-box-container">
-<input type="radio" name="themehelper_color[color_scheme_option]" value="<?php echo get_option(themehelper_color_option5); ?>" class="color-box color-box-option5" <?php checked( $checked, $option5, $echo ); ?> > 
-<input type="text" name="themehelper_color_option5" value="<?php echo get_option(themehelper_color_option5); ?>" class="color-box-field">
-</div>
 
 
 </div>
@@ -300,22 +381,67 @@ $echo = true;
 
 <h3> CSS Switcher Option </h3>
 
- <div class="themehelper-container">
-<h4> Background Color Switcher </h4>
 <p> Control your Background Color Scheme by adding only the CSS Property here. Example " .site-header, .site-footer " </p>
+
+ <div class="themehelper-container">
+
+<div class="col3">
+ <h4> Primary Background Color  </h4>
 <textarea name="themehelper_css_color_bg" class="themehelper-textarea"> <?php echo  get_option(themehelper_css_color_bg); ?> </textarea>
 </div>
 
+<div class="col3">
+ <h4> Light Background Color  </h4>
+<textarea name="themehelper_css_color_bg_light" class="themehelper-textarea"> <?php echo  get_option(themehelper_css_color_bg_light); ?> </textarea>
+</div>
+
+<div class="col3">
+ <h4> Dark Background Color  </h4>
+<textarea name="themehelper_css_color_bg_dark" class="themehelper-textarea"> <?php echo  get_option(themehelper_css_color_bg_dark); ?> </textarea>
+</div>
+
+</div>
+
  <div class="themehelper-container">
-<h4> Text Color Switcher </h4>
-<p> Control your Text Color Scheme by adding only the CSS Property here. Example " body, h1, h2, h3, h4, h5, h6, p " </p>
+ 
+ <p> Control your Text Color Scheme by adding only the CSS Property here. Example " body, h1, h2, h3, h4, h5, h6, p " </p>
+ 
+<div class="col3">
+<h4> Primary Text Color  </h4>
 <textarea name="themehelper_css_color_txt" class="themehelper-textarea"> <?php echo  get_option(themehelper_css_color_txt); ?> </textarea>
+</div>
+
+<div class="col3">
+<h4> Light Text Color  </h4>
+<textarea name="themehelper_css_color_txt_light" class="themehelper-textarea"> <?php echo  get_option(themehelper_css_color_txt_light); ?> </textarea>
+</div>
+
+<div class="col3">
+<h4> Dark Text Color  </h4>
+<textarea name="themehelper_css_color_txt_dark" class="themehelper-textarea"> <?php echo  get_option(themehelper_css_color_txt_dark); ?> </textarea>
+</div>
+
 </div>
 		 
  <div class="themehelper-container">
-<h4> Border Color Switcher </h4>
-<p> Control your Border Color Scheme by adding only the CSS Property here. Example " body, h1, h2, h3, h4, h5, h6, p " </p>
+ 
+  <p> Control your Border Color Scheme by adding only the CSS Property here. Example ".site-header, .site-footer" </p>
+ 
+ <div class="col3">
+<h4> Primary Border Color  </h4>
 <textarea name="themehelper_css_color_border" class="themehelper-textarea"> <?php echo  get_option(themehelper_css_color_border); ?> </textarea>
+</div>
+
+ <div class="col3">
+<h4> Light Border Color  </h4>
+<textarea name="themehelper_css_color_border_light" class="themehelper-textarea"> <?php echo  get_option(themehelper_css_color_border_light); ?> </textarea>
+</div>
+
+ <div class="col3">
+<h4> Dark Border Color  </h4>
+<textarea name="themehelper_css_color_border_dark" class="themehelper-textarea"> <?php echo  get_option(themehelper_css_color_border_dark); ?> </textarea>
+</div>
+
 </div>		 
 		  
         </div>
@@ -588,6 +714,9 @@ $th_custom5 = 'themehelper-icon5';
 
 </div>
 
+
+	
+	
 
 <script>
 jQuery(document).ready(function() {
