@@ -149,3 +149,19 @@ a.themehelper-icon.themehelper-thumbler.medium.light {
     margin: 5px;
    border: 3px solid #FFF;
   }
+/************* disable tel link in desktop **********/
+
+@media only screen and (min-width:768px) and (max-width:1920px) { 
+
+
+body.theme-helper  a[href^="tel"]:link, body.theme-helper  a[href^="tel"]:visited, body.theme-helper  a[href^="tel"]:hover {
+color: inherit !important;
+    pointer-events: none;
+    cursor: default;
+}
+}
+
+@media only screen and (max-width:767px) { 
+pointer-events: auto;
+        cursor: pointer;
+}

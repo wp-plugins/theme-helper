@@ -297,7 +297,7 @@ elseif ($th_color_scheme[color_scheme_option] == $option5) {
 	
  }
 
-add_action( 'wp_footer', 'th_color_scheme' );
+add_action( 'wp_head', 'th_color_scheme' );
 
 
 
@@ -400,6 +400,7 @@ jQuery( ".themehelper-color-switch" ).click(function() {
 
 <script>
 jQuery( ".search-form input[type='search']" ).addClass( "search-box" );
+jQuery( ".search-form input[type='text']" ).addClass( "search-box" );
 jQuery( ".search-form input[type='submit']" ).addClass( "search-button" );
 </script>
 
