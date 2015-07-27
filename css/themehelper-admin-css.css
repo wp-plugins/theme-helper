@@ -146,7 +146,7 @@ li.th-menu-banner a {
   box-sizing: border-box;
 }
 
-input[type=radio].color-box, .color-box {
+.themehelper-wrap input.color-box {
   border: 3px solid #eee;
   border-radius: 0;
   height: 50px;
@@ -224,12 +224,12 @@ input[type=radio].color-box, .color-box {
   border: 1px solid #ccc;
 }
 
-[type=radio]:checked ~ label {
+.themehelper-wrap [type=radio]:checked ~ label {
   background: white;
   border-bottom: 1px solid white;
   z-index: 2;
 }
-[type=radio]:checked ~ label ~ .color-tab-content {
+.themehelper-wrap [type=radio]:checked ~ label ~ .color-tab-content {
   z-index: 1;
 }
 

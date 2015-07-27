@@ -5,9 +5,15 @@ function th_logo_shortcode ( $logo ) {
 $logo = get_option(themehelper_logo);
 $company_name = get_option(themehelper_companyname);
 $home = home_url();
-$output = "<a href='".$home."' alt='".$company_name." Logo'><img src='".$logo."'></a>";
+$output = "<a href='".$home."'><img  alt='".$company_name." Logo' src='".$logo."'></a>";
 
+if ($logo){
 return $output;
+}
+else {
+	
+}
+
 }
 
 add_shortcode( 'themehelper_logo', 'th_logo_shortcode' );
@@ -19,7 +25,13 @@ $company_name = get_option(themehelper_companyname);
 $home = home_url();
 $output = "<a href='".$home."' alt='".$company_name." Logo'><img src='".$logo."'></a>";
 
+if ($logo){
 return $output;
+}
+else {
+	
+}
+
 }
 
 add_shortcode( 'themehelper_secondary_logo', 'th_secondary_logo_shortcode' );
@@ -29,11 +41,14 @@ function th_banner1_shortcode ( $banner ) {
 $banner_url = get_option(themehelper_url_banner1);
 $banner = get_option(themehelper_banner1);
 
-if ($banner_url) {
-$output = "<a href=".$banner_url."><img src='".$banner."'></a>";
+if ($banner_url && $banner) {
+	$output = "<a id='theme-helper-banner1' class='theme-helper-banner' href=".$banner_url."><img src='".$banner."'></a>";
+}
+elseif ($banner) {
+$output = "<img id='theme-helper-banner1' class='theme-helper-banner' src='".$banner."'>";	
 }
 else {
-$output = "<img src='".$banner."'>";	
+	
 }
 return $output;
 }
@@ -47,11 +62,14 @@ $banner_url = get_option(themehelper_url_banner2);
 $banner = get_option(themehelper_banner2);
 
 
-if ($banner_url) {
-$output = "<a href=".$banner_url."><img src='".$banner."'></a>";
+if ($banner_url && $banner) {
+	$output = "<a id='theme-helper-banner1' class='theme-helper-banner' href=".$banner_url."><img src='".$banner."'></a>";
+}
+elseif ($banner) {
+$output = "<img id='theme-helper-banner1' class='theme-helper-banner' src='".$banner."'>";	
 }
 else {
-$output = "<img src='".$banner."'>";	
+	
 }
 return $output;
 }
@@ -64,9 +82,9 @@ function th_company_shortcode ( $atts ) {
 	
   
  $company_name = get_option(themehelper_companyname);
- 
- $output = "<span class='themehelper-company-name' id='themehelper-company-name'>".$company_name."</span>";
- 
+ if ($company_name) {
+ $output = "<span class='theme-helper-company-name' id='theme-helper-company-name'>".$company_name."</span>";
+ }
  return $output;
 }
 
@@ -76,8 +94,9 @@ add_shortcode( 'themehelper_company_name', 'th_company_shortcode' );
 function th_email_shortcode ( $atts ) {
 
 $email = get_option(themehelper_email);
- $output = "<a href='mailto:".$email."'>".$email."</a>";
-
+if ($email) {
+$output = "<a id='theme-helper-email' class='theme-helper-email' href='mailto:".$email."'>".$email."</a>";
+}
 return $output;
  }
 
@@ -88,8 +107,9 @@ add_shortcode( 'themehelper_email', 'th_email_shortcode' );
 function th_phone_shortcode ( $atts ) {
 
 $phone = get_option(themehelper_phone);
- $output = "<a href='tel:".$phone."'>".$phone."</a>";
-
+if ($phone) {
+$output = "<a id='theme-helper-phone' class='theme-helper-phone' href='tel:".$phone."'>".$phone."</a>";
+}
 return $output;
  }
 
@@ -98,9 +118,11 @@ add_shortcode( 'themehelper_phone', 'th_phone_shortcode' );
 function th_fax_shortcode ( $atts ) {
 
 $fax = get_option(themehelper_fax);
+if ($fax) {
  $output = "<span class='themehelper-fax' id='themehelper-fax'> ".$fax."</span>";
-
+}
 return $output;
+ 
  }
 
 add_shortcode( 'themehelper_fax', 'th_fax_shortcode' );
@@ -108,9 +130,9 @@ add_shortcode( 'themehelper_fax', 'th_fax_shortcode' );
 function th_address_shortcode ( $atts ) {
 
  $address = get_option(themehelper_address);
- 
+ if ($address) {
  $output = "<span class='themehelper-address' id='themehelper-address'>".$address."</span>";
- 
+ }
  return $output;
  }
 
