@@ -139,7 +139,7 @@ wp_enqueue_media();
 
 <div class="themehelper-header">
 <div class="themehelper-title"> <h1> <span> THEME </span> HELPER </h1> </div>
-<div class="themehelper-header-link">  <a target="_blank" href="">  FAQ </a> | <a target="_blank" href="">  Support Forum </a>  </div>
+<div class="themehelper-header-link">  <a target="_blank" href="https://wordpress.org/plugins/theme-helper/faq/">  FAQ </a> | <a target="_blank" href="">  Support Forum </a>  </div>
 <div class="themehelper-donation"> <a target="_blank" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=NAX45XQV5P7ZW"> <img src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif"> </a> </div>
 </div>
 
@@ -714,9 +714,6 @@ $th_custom5 = 'themehelper-icon5';
 
 </div>
 
-
-	
-	
 
 <script>
 jQuery(document).ready(function() {

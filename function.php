@@ -108,7 +108,10 @@ function th_phone_shortcode ( $atts ) {
 
 $phone = get_option(themehelper_phone);
 if ($phone) {
-$output = "<a id='theme-helper-phone' class='theme-helper-phone' href='tel:".$phone."'>".$phone."</a>";
+$tel = get_option(themehelper_phone);
+$trim = array(" ", "-", "(", ")");
+$telno = str_replace($trim, "", $tel);
+$output = "<a id='theme-helper-phone' class='theme-helper-phone' href='tel:".$telno."'>".$phone."</a>";
 }
 return $output;
  }
@@ -433,7 +436,17 @@ if (get_option('th_activate_color_switcher') == 'th_activate_color_switcher') {
 
 add_action('wp_footer','th_color_scheme_switcher');
 
+}
 
+// contact form 7 
+
+
+add_filter( 'wpcf7_form_elements', 'mycustom_wpcf7_form_elements' );
+
+function mycustom_wpcf7_form_elements( $form ) {
+	$form = do_shortcode( $form );
+
+	return $form;
 }
 
 ?>

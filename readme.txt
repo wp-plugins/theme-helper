@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: Theme Helper, theme addon, shortcode, color switcher, color scheme, theme, framework addon, framework, genesis, genesis framework,
 Requires at least: 4.0
 Tested up to: 4.2
-Stable tag: 1.09
+Stable tag: 1.10
 License: GPLv2 or later
 License URI: GPLv2 or later
 
@@ -110,6 +110,12 @@ Available Attributes
 Settings page
 
 == Changelog ==
+
+= version 1.10 =
+
+* contact form 7 shortcodes compatibility
+* fixed tel link layout
+
 
 = version 1.09 =
 
